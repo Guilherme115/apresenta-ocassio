@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Interativa: Física Quântica e Radiação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .slide {
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+    }
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+      padding: 0 1.5rem;
+    }
+    .collapsible-content.open {
+      max-height: 500px; /* Adjust as needed */
+      padding: 1rem 1.5rem;
+    }
+    .collapsible-header svg {
+      transition: transform 0.3s ease-in-out;
+    }
+    .collapsible-header.active svg {
+      transform: rotate(180deg);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
+
+<div class="w-full max-w-4xl mx-auto">
+  <!-- Cabeçalho e Nomes -->
+  <div class="text-center mb-6">
+    <h1 class="text-4xl font-bold text-cyan-400">Física Quântica e Radiações</h1>
+    <p class="text-gray-400 mt-2">Uma Apresentação Interativa</p>
+    <p class="text-sm text-gray-500 mt-4">Alunos: Guilherme, Pedro Thibau e Mathias</p>
+    <p class="text-sm text-gray-500 mt-2">Professor: Cassio | Escola: Fátima</p>
+  </div>
+
+  <!-- Container da Apresentação -->
+  <div id="presentation-container" class="bg-gray-800 rounded-2xl shadow-2xl shadow-cyan-500/10 overflow-hidden">
+    <div class="p-8">
+      <!-- Slide 1: Dualidade onda-partícula -->
+      <div class="slide active">
+        <h2 class="text-3xl font-bold text-center mb-6 text-cyan-300">Dualidade Onda-Partícula</h2>
+        <div class="space-y-4">
+          <!-- O que é? -->
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">O que é?</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <p class="text-gray-300">É o princípio da mecânica quântica que postula que todas as partículas (como elétrons e fótons) podem se comportar tanto como partículas (com posição e massa definidas) quanto como ondas (com frequência e comprimento de onda). A forma como se manifestam depende de como são observadas.</p>
+            </div>
+          </div>
+          <!-- Como funciona? -->
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">Como funciona?</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <p class="text-gray-300">O famoso "experimento da fenda dupla" demonstra isso. Quando partículas são enviadas uma a uma através de duas fendas, elas criam um padrão de interferência na tela de detecção, como se fossem ondas. No entanto, se tentarmos observar por qual fenda cada partícula passa, o padrão de interferência desaparece, e elas se comportam como partículas.</p>
+            </div>
+          </div>
+          <!-- Onde é aplicado? -->
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">Onde é aplicado?</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <p class="text-gray-300">Essa dualidade é a base para tecnologias como o microscópio eletrônico (que usa o comprimento de onda dos elétrons para ver objetos minúsculos), lasers e o desenvolvimento da computação quântica.</p>
+            </div>
+          </div>
+          <!-- Imagem -->
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">Imagem Autoexplicativa</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <div class="bg-gray-800 p-4 rounded-md flex justify-center items-center">
+                <svg width="100%" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                  <text x="10" y="20" font-family="Inter" font-size="14" fill="#9ca3af">Fonte de partículas</text>
+                  <circle cx="20" cy="75" r="5" fill="#fde047" />
+
+                  <path d="M40 75 Q 80 50, 120 75 T 200 75" stroke="#67e8f9" stroke-width="2" fill="none" />
+                  <text x="90" y="110" font-family="Inter" font-size="14" fill="#9ca3af">Comportamento de ONDA</text>
+
+                  <path d="M220 75 L 380 75" stroke="#fde047" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+                  <circle cx="380" cy="75" r="5" fill="#fde047" />
+                  <text x="240" y="110" font-family="Inter" font-size="14" fill="#9ca3af">Comportamento de PARTÍCULA</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Princípio de Incerteza -->
+      <div class="slide">
+        <h2 class="text-3xl font-bold text-center mb-6 text-cyan-300">O Princípio da Incerteza</h2>
+        <div class="space-y-4">
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">O que é?</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <p class="text-gray-300">Formulado por Werner Heisenberg, afirma que é impossível conhecer simultaneamente e com precisão absoluta certos pares de grandezas físicas de uma partícula, como sua posição e seu momento (velocidade x massa). Quanto mais precisa for a medida da posição, menos precisa será a medida do momento, e vice-versa.</p>
+            </div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">Como funciona?</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <p class="text-gray-300">Não se trata de uma limitação dos instrumentos de medição. É uma propriedade fundamental da natureza. Para medir a posição de um elétron, por exemplo, precisaríamos "iluminá-lo" com um fóton. Esse fóton, ao interagir com o elétron, transfere energia e altera seu momento, tornando a medida da velocidade imprecisa.</p>
+            </div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">Onde é aplicado?</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <p class="text-gray-300">O princípio explica por que os elétrons não "caem" no núcleo do átomo. Se caíssem, sua posição e momento seriam conhecidos com precisão, violando o princípio. Também é crucial para entender fenômenos como o tunelamento quântico, usado em memórias flash.</p>
+            </div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
+              <h3 class="font-semibold text-lg">Imagem Autoexplicativa</h3>
+              <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="collapsible-content">
+              <div class="bg-gray-800 p-4 rounded-md flex justify-around items-center text-center">
+                <div>
+                  <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="5" fill="#67e8f9" />
+                    <text x="15" y="90" font-size="10" fill="#cbd5e1">Posição Precisa</text>
+                  </svg>
+                  <p class="text-sm text-gray-400 mt-1">Momento Incerto</p>
+                </div>
+                <div>
+                  <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="30" fill="#67e8f9" fill-opacity="0.3"/>
+                    <circle cx="50" cy="50" r="20" fill="#67e8f9" fill-opacity="0.4"/>
+                    <text x="15" y="90" font-size="10" fill="#cbd5e1">Posição Incerta</text>
+                  </svg>
+                  <p class="text-sm text-gray-400 mt-1">Momento Preciso</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Radiações Alfa, Beta e Gama -->
+      <div class="slide">
+        <h2 class="text-3xl font-bold text-center mb-6 text-cyan-300">Radiações Alfa, Beta e Gama</h2>
+        <div class="space-y-4">
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">O que são?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">São os três principais tipos de radiação emitidos por núcleos atômicos instáveis (radioativos) durante o processo de decaimento. <br>• <b>Alfa (α):</b> Um núcleo de Hélio (2 prótons, 2 nêutrons).<br>• <b>Beta (β):</b> Um elétron ou pósitron de alta energia.<br>• <b>Gama (γ):</b> Uma onda eletromagnética de altíssima energia (fóton).</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Como funcionam?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">Um núcleo instável libera energia e partículas para se tornar mais estável. A partícula Alfa é grande e pesada, sendo barrada facilmente. A Beta é menor e mais penetrante. A radiação Gama não tem massa nem carga, sendo a mais penetrante de todas, exigindo barreiras densas como chumbo para ser detida.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Onde são aplicadas?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">• <b>Alfa:</b> Usada em detectores de fumaça.<br>• <b>Beta:</b> Usada em datação por Carbono-14 e em alguns tratamentos médicos (braquiterapia).<br>• <b>Gama:</b> Usada para esterilizar equipamentos médicos, em radioterapia para tratar câncer e em exames de imagem (PET scan).</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Imagem Autoexplicativa</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content">
+              <p class="text-center text-gray-400 mb-2">Poder de Penetração</p>
+              <div class="bg-gray-800 p-4 rounded-md flex justify-around items-center text-center text-sm">
+                <div class="flex flex-col items-center w-1/4">
+                  <span class="text-2xl">α</span><p class="mt-2">Alfa</p><div class="w-full h-1 bg-red-400 mt-2"></div><p class="mt-2 text-gray-400">Papel</p>
+                </div>
+                <div class="flex flex-col items-center w-1/4">
+                  <span class="text-2xl">β</span><p class="mt-2">Beta</p><div class="w-full h-1 bg-yellow-400 mt-2"></div><p class="mt-2 text-gray-400">Alumínio</p>
+                </div>
+                <div class="flex flex-col items-center w-1/4">
+                  <span class="text-2xl">γ</span><p class="mt-2">Gama</p><div class="w-full h-1 bg-cyan-400 mt-2"></div><p class="mt-2 text-gray-400">Chumbo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Decaimento e Meia-Vida -->
+      <div class="slide">
+        <h2 class="text-3xl font-bold text-center mb-6 text-cyan-300">Decaimento Radioativo e Meia-Vida</h2>
+        <div class="space-y-4">
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">O que é?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300"><b>Decaimento Radioativo</b> é o processo espontâneo pelo qual um núcleo atômico instável perde energia emitindo radiação. <b>Meia-vida</b> (ou período de semidesintegração) é o tempo necessário para que metade dos núcleos radioativos de uma amostra se desintegrem.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Como funciona?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">O decaimento é um processo probabilístico. Não podemos prever quando um núcleo específico irá decair, mas para uma grande amostra, a taxa de decaimento é constante. Após uma meia-vida, 50% da amostra original permanece. Após duas meias-vidas, restam 25% (metade da metade), e assim por diante, seguindo uma curva de decaimento exponencial.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Onde é aplicado?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">A aplicação mais famosa é a <b>datação por radiocarbono</b>, que usa a meia-vida do Carbono-14 (aprox. 5730 anos) para determinar a idade de fósseis e artefatos orgânicos. Na medicina, isótopos com meia-vida curta são usados em exames de imagem, pois são eliminados rapidamente do corpo.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Imagem Autoexplicativa</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content">
+              <p class="text-center text-gray-400 mb-2">Curva de Decaimento Radioativo</p>
+              <div class="bg-gray-800 p-4 rounded-md">
+                <svg viewBox="0 0 300 150">
+                  <path d="M 20 130 L 20 10 L 280 10" fill="none" stroke="#4a5568" stroke-width="1"/>
+                  <text x="5" y="15" font-size="8" fill="#9ca3af">100%</text>
+                  <text x="5" y="72.5" font-size="8" fill="#9ca3af">50%</text>
+                  <text x="5" y="135" font-size="8" fill="#9ca3af">0%</text>
+                  <text x="15" y="145" font-size="8" fill="#9ca3af">0</text>
+                  <text x="90" y="145" font-size="8" fill="#9ca3af">1 Meia-vida</text>
+                  <text x="160" y="145" font-size="8" fill="#9ca3af">2 Meias-vidas</text>
+                  <text x="230" y="145" font-size="8" fill="#9ca3af">3 Meias-vidas</text>
+
+                  <path d="M 20 10 C 60 10, 70 70, 95 70 S 140 40, 165 40 S 210 25, 235 25 S 260 20, 280 20" stroke="#67e8f9" stroke-width="2" fill="none"/>
+
+                  <circle cx="95" cy="70" r="2" fill="white" />
+                  <path d="M 95 70 L 95 130" stroke="white" stroke-dasharray="2,2" stroke-width="1" />
+                  <circle cx="165" cy="40" r="2" fill="white" />
+                  <path d="M 165 40 L 165 130" stroke="white" stroke-dasharray="2,2" stroke-width="1" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Radiação Ionizante -->
+      <div class="slide">
+        <h2 class="text-3xl font-bold text-center mb-6 text-cyan-300">Radiação Ionizante</h2>
+        <div class="space-y-4">
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">O que é?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">É qualquer tipo de partícula ou onda eletromagnética que carrega energia suficiente para remover elétrons de átomos ou moléculas, ionizando-os. Esse processo pode danificar o DNA das células vivas.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Como funciona?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">A alta energia da radiação (ex: raios X, gama, partículas alfa e beta) colide com um elétron orbital de um átomo. Se a energia transferida for maior que a energia de ligação do elétron, ele é ejetado, deixando para trás um íon (um átomo com carga elétrica).</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Onde é encontrada?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">Aplicações médicas (raios-X, tomografias, radioterapia), usinas nucleares, radiação cósmica do espaço e materiais radioativos naturais na Terra (como o radônio).</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Imagem Autoexplicativa</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content">
+              <div class="bg-gray-800 p-4 rounded-md">
+                <svg viewBox="0 0 300 100">
+                  <text x="10" y="50" font-size="12" fill="#f87171">Raio-X ➔</text>
+
+                  <circle cx="150" cy="50" r="10" fill="#a78bfa"/> <!-- Núcleo -->
+                  <circle cx="150" cy="50" r="30" stroke="#4a5568" stroke-width="1" fill="none"/>
+                  <circle id="electron-ion" cx="180" cy="50" r="5" fill="#67e8f9" />
+
+                  <path d="M 185 45 L 240 20" stroke="#f87171" stroke-width="1.5" />
+                  <circle cx="240" cy="20" r="5" fill="#67e8f9" />
+                  <text x="180" y="80" font-size="10" fill="white">Átomo se torna um ÍON</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Radiação Não Ionizante -->
+      <div class="slide">
+        <h2 class="text-3xl font-bold text-center mb-6 text-cyan-300">Radiação Não Ionizante</h2>
+        <div class="space-y-4">
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">O que é?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">É uma forma de radiação que não possui energia suficiente para remover elétrons dos átomos ou moléculas. Ela pode excitar os elétrons (movê-los para um nível de energia mais alto), mas não ionizá-los.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Como funciona?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">A energia da radiação é absorvida pelo átomo, fazendo com que um elétron "salte" para uma camada orbital mais externa. O principal efeito no tecido biológico é o aquecimento, como ocorre no forno de micro-ondas.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Onde é encontrada?</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content"><p class="text-gray-300">Está presente em nosso dia a dia: ondas de rádio, micro-ondas (celulares, Wi-Fi, fornos), luz infravermelha (controles remotos), luz visível e radiação ultravioleta de baixa frequência.</p></div>
+          </div>
+          <div class="collapsible-item bg-gray-700/50 rounded-lg">
+            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4"><h3 class="font-semibold text-lg">Imagem Autoexplicativa</h3><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+            <div class="collapsible-content">
+              <div class="bg-gray-800 p-4 rounded-md">
+                <svg viewBox="0 0 300 100">
+                  <text x="10" y="50" font-size="12" fill="#a3e635">Micro-ondas ➔</text>
+
+                  <circle cx="150" cy="50" r="10" fill="#a78bfa"/> <!-- Núcleo -->
+                  <circle cx="150" cy="50" r="30" stroke="#4a5568" stroke-width="1" fill="none"/>
+                  <circle cx="150" cy="50" r="45" stroke="#4a5568" stroke-width="1" stroke-dasharray="2,2" fill="none"/>
+                  <circle id="electron-nonion" cx="180" cy="50" r="5" fill="#67e8f9" />
+
+                  <animateMotion
+                          xlink:href="#electron-nonion"
+                          dur="1s"
+                          begin="mouseover"
+                          end="mouseout"
+                          repeatCount="indefinite"
+                          path="M0,0 A15,15 0 0,1 0,0"
+                          rotate="auto" />
+
+                  <text x="160" y="85" font-size="10" fill="white">Elétron é excitado, mas não escapa.</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="bg-gray-700/30 p-4 flex justify-between items-center">
+      <button id="prevBtn" class="bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold py-2 px-4 rounded-lg transition duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed">Anterior</button>
+      <div id="slide-counter" class="text-gray-400 text-sm"></div>
+      <button id="nextBtn" class="bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold py-2 px-4 rounded-lg transition duration-300">Próximo</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideCounter = document.getElementById('slide-counter');
+    const collapsibles = document.querySelectorAll('.collapsible-header');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlideView() {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentSlide);
+      });
+
+      // Atualiza o contador
+      slideCounter.textContent = `Tópico ${currentSlide + 1} de ${totalSlides}`;
+
+      // Habilita/desabilita botões
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlideView();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlideView();
+      }
+    });
+
+    // Lógica para os acordeões (collapsibles)
+    collapsibles.forEach(header => {
+      header.addEventListener('click', () => {
+        // Fecha todos os outros abertos no mesmo slide
+        const parentSlide = header.closest('.slide');
+        parentSlide.querySelectorAll('.collapsible-header').forEach(otherHeader => {
+          if (otherHeader !== header) {
+            otherHeader.classList.remove('active');
+            otherHeader.nextElementSibling.classList.remove('open');
+          }
+        });
+
+        // Abre ou fecha o clicado
+        const content = header.nextElementSibling;
+        header.classList.toggle('active');
+        content.classList.toggle('open');
+      });
+    });
+
+    // Inicializa a visualização
+    updateSlideView();
+  });
+</script>
+
+</body>
+</html>
+
