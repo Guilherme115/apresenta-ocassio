@@ -3,278 +3,326 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App: Física Quântica e Radiação</title>
+  <title>A Revolução das Enzimas: O Fim do Plástico?</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
-    .screen {
-      display: none;
+    .hero-bg {
+      background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('https://placehold.co/1920x1080/0a192f/e0e0e0?text=Polimeros');
+      background-size: cover;
+      background-position: center;
+    }
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background-color: #22d3ee;
+      border-radius: 2px;
+    }
+    .card-flip {
+      perspective: 1000px;
+    }
+    .card-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .is-flipped {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 0.5rem;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Animação da garrafa */
+    #plastic-bottle {
+      transition: all 0.5s ease-in-out;
+    }
+    #bottle-crack { transition: opacity 0.5s ease; }
+
+    /* Estilo para o vídeo responsivo */
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      margin-top: 2rem;
+      border-radius: 0.5rem;
+    }
+    .video-container iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      will-change: transform, opacity;
     }
-    .screen.active {
-      display: block;
-    }
-    .slide {
-      display: none;
-    }
-    .slide.active {
-      display: block;
-    }
-    .collapsible-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-      padding: 0 1.5rem;
-    }
-    .collapsible-content.open {
-      max-height: 500px;
-      padding: 1rem 1.5rem;
-    }
-    .collapsible-header svg.arrow {
-      transition: transform 0.3s ease-in-out;
-    }
-    .collapsible-header.active svg.arrow {
-      transform: rotate(180deg);
-    }
-
-    /* Animações de Tela */
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes slideOut {
-      from { transform: translateX(0); opacity: 1; }
-      to { transform: translateX(-100%); opacity: 0; }
-    }
-    .slide-in { animation: slideIn 0.5s forwards ease-in-out; }
-    .slide-out { animation: slideOut 0.5s forwards ease-in-out; }
   </style>
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
+<body class="bg-gray-900 text-white">
 
-<main class="w-full max-w-4xl h-[80vh] min-h-[650px] bg-gray-800 rounded-2xl shadow-2xl shadow-cyan-500/10 overflow-hidden relative">
-
-  <div id="home-screen" class="screen active p-8">
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-cyan-400">Física Quântica e Radiações</h1>
-      <p class="text-gray-400 mt-2">Navegue pelos tópicos abaixo</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <button data-topic="0" class="topic-card bg-gray-700/80 p-6 rounded-lg text-left hover:bg-cyan-900/50 transition duration-300 flex items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547a2 2 0 00-.547 1.806l.477 2.387a6 6 0 00.517 3.86l.158.318a6 6 0 00.517 3.86l2.387.477a2 2 0 001.806-.547a2 2 0 00.547-1.806l-.477-2.387a6 6 0 00-.517-3.86l-.158-.318a6 6 0 00-.517-3.86l-2.387-.477z" /></svg>
-        <div><h3 class="font-bold text-lg text-white">Dualidade Onda-Partícula</h3><p class="text-sm text-gray-400">O comportamento duplo da matéria.</p></div>
-      </button>
-      <button data-topic="1" class="topic-card bg-gray-700/80 p-6 rounded-lg text-left hover:bg-cyan-900/50 transition duration-300 flex items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <div><h3 class="font-bold text-lg text-white">O Princípio da Incerteza</h3><p class="text-sm text-gray-400">O limite fundamental da precisão.</p></div>
-      </button>
-      <button data-topic="2" class="topic-card bg-gray-700/80 p-6 rounded-lg text-left hover:bg-cyan-900/50 transition duration-300 flex items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-        <div><h3 class="font-bold text-lg text-white">Radiações Alfa, Beta e Gama</h3><p class="text-sm text-gray-400">Os três tipos de emissão nuclear.</p></div>
-      </button>
-      <button data-topic="3" class="topic-card bg-gray-700/80 p-6 rounded-lg text-left hover:bg-cyan-900/50 transition duration-300 flex items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <div><h3 class="font-bold text-lg text-white">Decaimento e Meia-Vida</h3><p class="text-sm text-gray-400">O relógio da matéria radioativa.</p></div>
-      </button>
-      <button data-topic="4" class="topic-card bg-gray-700/80 p-6 rounded-lg text-left hover:bg-cyan-900/50 transition duration-300 flex items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-        <div><h3 class="font-bold text-lg text-white">Radiação Ionizante</h3><p class="text-sm text-gray-400">Radiação de alta energia.</p></div>
-      </button>
-      <button data-topic="5" class="topic-card bg-gray-700/80 p-6 rounded-lg text-left hover:bg-cyan-900/50 transition duration-300 flex items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-        <div><h3 class="font-bold text-lg text-white">Radiação Não Ionizante</h3><p class="text-sm text-gray-400">Radiação de baixa energia.</p></div>
-      </button>
-    </div>
-    <div class="text-center mt-8 text-sm text-gray-500">
-      <p>Feito por: Guilherme Ribeiro</p>
-      <p>Gustavo, Mathias </p>
-
-      <p class="mt-1">Professor: Cassio | Escola: Fátima</p>
-      <p>
-      <img src="media/img.png" alt="logo do fatima"width="200" height="150"class="mx-auto block mb-4 opacity-70 rounded" width="200" height="60">
-      </p>
-    </div>
+<section class="hero-bg min-h-screen flex items-center justify-center text-center p-4">
+  <div>
+    <h1 class="text-4xl md:text-7xl font-bold text-cyan-300 drop-shadow-lg">A Revolução das Enzimas</h1>
+    <p class="text-xl md:text-3xl mt-4 font-light">Como a ciência busca uma solução para o lixo plástico.</p>
   </div>
+</section>
 
-  <div id="content-screen" class="screen flex flex-col h-full">
-    <header class="p-4 flex items-center border-b border-gray-700">
-      <button id="back-to-home-btn" class="p-2 rounded-full hover:bg-gray-700 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-      </button>
-      <h2 id="content-title" class="text-xl font-bold text-center flex-grow text-cyan-300 pr-8"></h2>
-    </header>
+<section class="py-20 px-4 container mx-auto text-center">
+  <h2 class="text-3xl md:text-4xl font-bold section-title">O Problema do Plástico</h2>
+  <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-300">
+    O plástico, um dos materiais mais úteis já criados, virou um pesadelo ambiental. Leva centenas de anos para se decompor, poluindo oceanos, terra e até nossos corpos. Mas e se a própria natureza tivesse uma resposta?
+  </p>
+</section>
 
-    <div class="flex-grow p-6 overflow-y-auto">
-      <div class="slide-container space-y-4">
+<section id="mito-400-anos" class="py-20 px-4 bg-gray-800">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold section-title">Plástico existe há pouco tempo. Como sabemos que leva 400 anos para degradar?</h2>
+
+    <!-- Vídeo do YouTube inserido aqui -->
+    <div class="video-container max-w-3xl mx-auto my-12">
+      <iframe src="https://www.youtube.com/embed/aBLtYOOd8FA?si=yYJJKObgRijSZ0x8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-300">
+      Não esperamos 400 anos para ter a resposta! Cientistas usam <strong class="text-cyan-400">testes de envelhecimento acelerado</strong> em laboratório. Eles simulam décadas de exposição ao sol, calor e umidade em questão de meses.
+    </p>
+    <div class="mt-12 bg-gray-900 p-8 rounded-lg shadow-xl max-w-4xl mx-auto">
+      <h3 class="text-2xl font-semibold mb-6">Simulador Interativo de Degradação</h3>
+      <div class="flex flex-col md:flex-row items-center justify-around gap-8">
+        <div class="w-full md:w-1/2">
+          <label for="years-slider" class="block mb-2 text-xl">Arraste para simular o tempo:</label>
+          <input id="years-slider" type="range" min="0" max="400" value="0" class="w-full h-3 bg-cyan-500 rounded-lg appearance-none cursor-pointer">
+          <div class="mt-4 text-2xl font-bold">
+            Anos Simulados: <span id="years-display" class="text-amber-400">0</span>
+          </div>
+          <p id="degradation-status" class="mt-2 h-12 text-lg text-gray-400">A garrafa está como nova.</p>
+        </div>
+        <div class="w-48 h-80 flex items-center justify-center">
+          <svg id="plastic-bottle" viewBox="0 0 100 200" class="w-full h-full">
+            <path fill="#a5f3fc" d="M30,200 L30,60 Q30,40 50,40 Q70,40 70,60 L70,200 Z" />
+            <path fill="#0891b2" d="M30,60 Q30,40 50,40 Q70,40 70,60 L70,55 Q70,35 50,35 Q30,35 30,55 Z" />
+            <rect fill="#0e7490" x="25" y="10" width="50" height="30" rx="5" />
+            <rect fill="#0e7490" x="40" y="0" width="20" height="10" />
+            <path id="bottle-crack" d="M50 80 C 55 100, 45 120, 50 140 S 60 160, 55 180" stroke="black" stroke-width="0" fill="none" opacity="0"/>
+          </svg>
+        </div>
       </div>
     </div>
-
-    <footer class="bg-gray-900/50 p-4 flex justify-between items-center border-t border-gray-700">
-      <button id="prevBtn" class="bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold py-2 px-4 rounded-lg transition duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed">Anterior</button>
-      <div id="slide-counter" class="text-gray-400 text-sm"></div>
-      <button id="nextBtn" class="bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold py-2 px-4 rounded-lg transition duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed">Próximo</button>
-    </footer>
   </div>
-</main>
+</section>
+
+<section class="py-20 px-4">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold section-title">Cardápio do Desastre: Avaliações do Oceano</h2>
+    <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-300">
+      Infelizmente, muitos animais confundem plástico com comida. Veja o que eles diriam se pudessem avaliar esses "pratos":
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
+      <!-- Animal 1 -->
+      <div class="bg-gray-800 p-6 rounded-lg text-left shadow-md">
+        <h4 class="text-xl font-semibold text-cyan-400 mb-2">Tartaruga Marinha avalia: Sacola Plástica</h4>
+        <p class="text-gray-300">⭐ (1/5) - Muito ruim, não recomendo.</p>
+        <p class="text-gray-400 text-sm mt-2"><strong class="text-red-400">O problema:</strong> Confundem com águas-vivas. O plástico bloqueia seu sistema digestivo, levando à inanição e morte por sufocamento.</p>
+      </div>
+      <!-- Animal 2 -->
+      <div class="bg-gray-800 p-6 rounded-lg text-left shadow-md">
+        <h4 class="text-xl font-semibold text-cyan-400 mb-2">Albatroz avalia: Tampinha de Garrafa</h4>
+        <p class="text-gray-300">⭐ (1/5) - Péssima escolha, indigesto.</p>
+        <p class="text-gray-400 text-sm mt-2"><strong class="text-red-400">O problema:</strong> Pássaros marinhos alimentam seus filhotes com plástico pensando que é comida. Seus estômagos ficam cheios de lixo, e eles morrem de fome.</p>
+      </div>
+      <!-- Animal 3 -->
+      <div class="bg-gray-800 p-6 rounded-lg text-left shadow-md">
+        <h4 class="text-xl font-semibold text-cyan-400 mb-2">Baleia avalia: Embalagens e Redes</h4>
+        <p class="text-gray-300">⭐ (1/5) - Sabor de nada, me senti mal depois.</p>
+        <p class="text-gray-400 text-sm mt-2"><strong class="text-red-400">O problema:</strong> Grandes quantidades de plástico podem causar obstruções internas, perfurações e uma morte lenta e dolorosa para os maiores animais do planeta.</p>
+      </div>
+      <!-- Animal 4 -->
+      <div class="bg-gray-800 p-6 rounded-lg text-left shadow-md">
+        <h4 class="text-xl font-semibold text-cyan-400 mb-2">Peixe avalia: Microplásticos</h4>
+        <p class="text-gray-300">⭐ (1/5) - Não pedi, mas veio em tudo.</p>
+        <p class="text-gray-400 text-sm mt-2"><strong class="text-red-400">O problema:</strong> Peixes ingerem partículas minúsculas de plástico que contaminam seus tecidos. Isso entra na cadeia alimentar e pode chegar até nós.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-4 bg-gray-800">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold section-title">A Solução: Como a Enzima PETase Funciona</h2>
+    <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-300">
+      A enzima funciona como uma tesoura biológica. O plástico (polímero) é uma longa corrente. A enzima <strong class="text-cyan-400">PETase</strong> identifica as ligações químicas dessa corrente e as quebra de forma precisa, revertendo o plástico aos seus componentes básicos, que podem ser usados para fazer plástico novo.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-4">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold section-title">Curiosidades Interativas</h2>
+    <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-300">Clique nos cards para revelar fatos incríveis!</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+      <div class="card-flip h-64 cursor-pointer" onclick="this.querySelector('.card-flip-inner').classList.toggle('is-flipped')">
+        <div class="card-flip-inner">
+          <div class="card-front bg-cyan-800"><h3 class="text-2xl font-bold">Descoberta Acidental</h3></div>
+          <div class="card-back bg-cyan-600"><p>A PETase foi descoberta em 2016 por cientistas japoneses em uma <strong class="text-gray-900">usina de reciclagem</strong>. Ela evoluiu naturalmente em bactérias que viviam em meio a garrafas PET!</p></div>
+        </div>
+      </div>
+      <div class="card-flip h-64 cursor-pointer" onclick="this.querySelector('.card-flip-inner').classList.toggle('is-flipped')">
+        <div class="card-flip-inner">
+          <div class="card-front bg-amber-600"><h3 class="text-2xl font-bold">Super Enzima</h3></div>
+          <div class="card-back bg-amber-500"><p>Cientistas já criaram uma "super enzima" em laboratório, combinando a PETase com outra enzima. Essa versão mutante degrada o plástico <strong class="text-gray-900">6 vezes mais rápido</strong> que a original.</p></div>
+        </div>
+      </div>
+      <div class="card-flip h-64 cursor-pointer" onclick="this.querySelector('.card-flip-inner').classList.toggle('is-flipped')">
+        <div class="card-flip-inner">
+          <div class="card-front bg-lime-700"><h3 class="text-2xl font-bold">Reciclagem Infinita?</h3></div>
+          <div class="card-back bg-lime-600"><p>Essa tecnologia permite uma <strong class="text-gray-900">reciclagem química</strong> perfeita. O plástico é quebrado em seus blocos fundamentais, permitindo criar um plástico novo com a mesma qualidade do original, teoricamente infinitas vezes.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-4 bg-gray-800">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold section-title">Teste seu Conhecimento!</h2>
+    <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-300">Preparamos uma questão no estilo ENEM para ver se você está afiado no assunto. Clique no botão abaixo para começar.</p>
+    <button id="open-enem-modal" class="mt-8 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+      Iniciar Questão Conceitual
+    </button>
+  </div>
+</section>
+
+<div id="enem-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50">
+  <div class="bg-gray-900 rounded-lg shadow-xl p-8 max-w-2xl w-full relative">
+    <button id="close-enem-modal" class="absolute top-4 right-4 text-2xl font-bold text-gray-400 hover:text-white">&times;</button>
+    <h3 class="text-xl font-bold text-cyan-400 mb-4">(ENEM - Adaptado)</h3>
+    <p class="mb-6 text-gray-300">
+      O polietileno tereftalato (PET), material presente em garrafas plásticas, é um polímero de condensação. A degradação desse material pela enzima PETase ocorre pela quebra de ligações específicas na cadeia polimérica, liberando seus monômeros constituintes. Esse processo de quebra na presença de água é chamado de:
+    </p>
+    <div id="options-container" class="space-y-4">
+      <button class="option-btn w-full text-left p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">a) Saponificação</button>
+      <button class="option-btn w-full text-left p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">b) Hidrólise</button>
+      <button class="option-btn w-full text-left p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">c) Esterificação</button>
+      <button class="option-btn w-full text-left p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">d) Polimerização</button>
+      <button class="option-btn w-full text-left p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">e) Oxidação</button>
+    </div>
+    <div id="feedback" class="mt-6 p-4 rounded-lg hidden"></div>
+  </div>
+</div>
+
+<footer class="py-10 px-4 text-center bg-gray-900 border-t border-gray-700">
+  <p class="text-gray-400">Ainda estamos no começo, mas a ciência nos mostra um futuro promissor, onde a própria natureza nos ajuda a consertar nossos erros.</p>
+  <p class="text-gray-500 mt-2 text-sm">Trabalho Interativo - 2025</p>
+</footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Elementos da UI
-    const homeScreen = document.getElementById('home-screen');
-    const contentScreen = document.getElementById('content-screen');
-    const topicCards = document.querySelectorAll('.topic-card');
-    const backBtn = document.getElementById('back-to-home-btn');
-    const contentTitle = document.getElementById('content-title');
-    const slideContainer = document.querySelector('.slide-container');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const slideCounter = document.getElementById('slide-counter');
+  // Lógica do Simulador de Degradação
+  const slider = document.getElementById('years-slider');
+  const yearsDisplay = document.getElementById('years-display');
+  const bottle = document.getElementById('plastic-bottle');
+  const bottleCrack = document.getElementById('bottle-crack');
+  const statusText = document.getElementById('degradation-status');
 
-    let currentSlideIndex = 0;
+  slider.addEventListener('input', () => {
+    const years = parseInt(slider.value);
+    yearsDisplay.textContent = years;
 
-    // Definição do conteúdo dos slides (para não repetir HTML)
-    const slidesContent = [
-      // [Título, [Conteúdo das seções...]]
-      ["Dualidade Onda-Partícula", [
-        ["O que é?", "É o princípio da mecânica quântica que postula que todas as partículas (como elétrons e fótons) podem se comportar tanto como partículas (com posição e massa definidas) quanto como ondas (com frequência e comprimento de onda). A forma como se manifestam depende de como são observadas."],
-        ["Como funciona?", "O famoso 'experimento da fenda dupla' demonstra isso. Quando partículas são enviadas uma a uma através de duas fendas, elas criam um padrão de interferência na tela de detecção, como se fossem ondas. No entanto, se tentarmos observar por qual fenda cada partícula passa, o padrão de interferência desaparece, e elas se comportam como partículas."],
-        ["Onde é aplicado?", "Essa dualidade é a base para tecnologias como o microscópio eletrônico (que usa o comprimento de onda dos elétrons para ver objetos minúsculos), lasers e o desenvolvimento da computação quântica."],
-        ["Imagem Autoexplicativa", `<svg width="100%" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg"><text x="10" y="20" font-family="Inter" font-size="14" fill="#9ca3af">Fonte de partículas</text><circle cx="20" cy="75" r="5" fill="#fde047" /><path d="M40 75 Q 80 50, 120 75 T 200 75" stroke="#67e8f9" stroke-width="2" fill="none" /><text x="90" y="110" font-family="Inter" font-size="14" fill="#9ca3af">Comportamento de ONDA</text><path d="M220 75 L 380 75" stroke="#fde047" stroke-width="2" fill="none" stroke-dasharray="5,5"/><circle cx="380" cy="75" r="5" fill="#fde047" /><text x="240" y="110" font-family="Inter" font-size="14" fill="#9ca3af">Comportamento de PARTÍCULA</text></svg>`]
-      ]],
-      ["O Princípio da Incerteza", [
-        ["O que é?", "Formulado por Werner Heisenberg, afirma que é impossível conhecer simultaneamente e com precisão absoluta certos pares de grandezas físicas de uma partícula, como sua posição e seu momento (velocidade x massa). Quanto mais precisa for a medida da posição, menos precisa será a medida do momento, e vice-versa."],
-        ["Como funciona?", "Não se trata de uma limitação dos instrumentos de medição. É uma propriedade fundamental da natureza. Para medir a posição de um elétron, por exemplo, precisaríamos 'iluminá-lo' com um fóton. Esse fóton, ao interagir com o elétron, transfere energia e altera seu momento, tornando a medida da velocidade imprecisa."],
-        ["Onde é aplicado?", "O princípio explica por que os elétrons não 'caem' no núcleo do átomo. Se caíssem, sua posição e momento seriam conhecidos com precisão, violando o princípio. Também é crucial para entender fenômenos como o tunelamento quântico, usado em memórias flash."],
-        ["Imagem Autoexplicativa", `<div class="flex justify-around items-center text-center"><div class="w-1/2"><svg width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="5" fill="#67e8f9" /><text x="15" y="90" font-size="10" fill="#cbd5e1">Posição Precisa</text></svg><p class="text-sm text-gray-400 mt-1">Momento Incerto</p></div><div class="w-1/2"><svg width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="#67e8f9" fill-opacity="0.3"/><circle cx="50" cy="50" r="20" fill="#67e8f9" fill-opacity="0.4"/><text x="15" y="90" font-size="10" fill="#cbd5e1">Posição Incerta</text></svg><p class="text-sm text-gray-400 mt-1">Momento Preciso</p></div></div>`]
-      ]],
-      ["Radiações Alfa, Beta e Gama", [
-        ["O que são?", "São os três principais tipos de radiação emitidos por núcleos atômicos instáveis (radioativos). <br>• <b>Alfa (α):</b> Um núcleo de Hélio. <br>• <b>Beta (β):</b> Um elétron ou pósitron. <br>• <b>Gama (γ):</b> Uma onda eletromagnética de alta energia."],
-        ["Poder de Penetração", "A partícula Alfa é grande, sendo barrada por uma folha de papel. A Beta é menor, barrada por alumínio. A radiação Gama não tem massa, sendo a mais penetrante, exigindo barreiras densas como chumbo."],
-        ["Onde são aplicadas?", "• <b>Alfa:</b> Detectores de fumaça.<br>• <b>Beta:</b> Datação por Carbono-14.<br>• <b>Gama:</b> Esterilizar equipamentos, radioterapia."],
-        ["Imagem Autoexplicativa", `<p class="text-center text-gray-400 mb-2">Poder de Penetração</p><div class="flex justify-around items-center text-center text-sm"><div class="flex flex-col items-center w-1/4"><span class="text-2xl">α</span><p class="mt-2">Alfa</p><div class="w-full h-1 bg-red-400 mt-2"></div><p class="mt-2 text-gray-400">Papel</p></div><div class="flex flex-col items-center w-1/4"><span class="text-2xl">β</span><p class="mt-2">Beta</p><div class="w-full h-1 bg-yellow-400 mt-2"></div><p class="mt-2 text-gray-400">Alumínio</p></div><div class="flex flex-col items-center w-1/4"><span class="text-2xl">γ</span><p class="mt-2">Gama</p><div class="w-full h-1 bg-cyan-400 mt-2"></div><p class="mt-2 text-gray-400">Chumbo</p></div></div>`]
-      ]],
-      ["Decaimento e Meia-Vida", [
-        ["O que é?", "<b>Decaimento Radioativo</b> é o processo pelo qual um núcleo instável perde energia emitindo radiação. <b>Meia-vida</b> é o tempo necessário para que metade dos núcleos de uma amostra se desintegrem."],
-        ["Como funciona?", "O decaimento é um processo probabilístico. Após uma meia-vida, 50% da amostra original permanece. Após duas meias-vidas, restam 25%, e assim por diante, seguindo uma curva de decaimento exponencial."],
-        ["Onde é aplicado?", "A aplicação mais famosa é a <b>datação por radiocarbono</b>, que usa a meia-vida do Carbono-14 para determinar a idade de fósseis. Isótopos com meia-vida curta são usados em exames de imagem."],
-        ["Imagem Autoexplicativa", `<p class="text-center text-gray-400 mb-2">Curva de Decaimento Radioativo</p><svg viewBox="0 0 300 150"><path d="M 20 130 L 20 10 L 280 10" fill="none" stroke="#4a5568" stroke-width="1"/><text x="5" y="15" font-size="8" fill="#9ca3af">100%</text><text x="5" y="72.5" font-size="8" fill="#9ca3af">50%</text><text x="5" y="135" font-size="8" fill="#9ca3af">0%</text><text x="15" y="145" font-size="8" fill="#9ca3af">0</text><text x="90" y="145" font-size="8" fill="#9ca3af">1 Meia-vida</text><text x="160" y="145" font-size="8" fill="#9ca3af">2 Meias-vidas</text><text x="230" y="145" font-size="8" fill="#9ca3af">3 Meias-vidas</text><path d="M 20 10 C 60 10, 70 70, 95 70 S 140 40, 165 40 S 210 25, 235 25 S 260 20, 280 20" stroke="#67e8f9" stroke-width="2" fill="none"/><circle cx="95" cy="70" r="2" fill="white" /><path d="M 95 70 L 95 130" stroke="white" stroke-dasharray="2,2" stroke-width="1" /><circle cx="165" cy="40" r="2" fill="white" /><path d="M 165 40 L 165 130" stroke="white" stroke-dasharray="2,2" stroke-width="1" /></svg>`]
-      ]],
-      ["Radiação Ionizante", [
-        ["O que é?", "É qualquer tipo de radiação que carrega energia suficiente para remover elétrons de átomos, ionizando-os. Esse processo pode danificar o DNA das células vivas."],
-        ["Como funciona?", "A alta energia da radiação (raios X, gama, alfa, beta) colide com um elétron orbital. Se a energia transferida for maior que a energia de ligação do elétron, ele é ejetado, deixando para trás um íon (átomo com carga)."],
-        ["Onde é encontrada?", "Aplicações médicas (raios-X, tomografias), usinas nucleares, radiação cósmica do espaço e materiais radioativos naturais na Terra."],
-        ["Imagem Autoexplicativa", `<svg viewBox="0 0 300 100"><text x="10" y="50" font-size="12" fill="#f87171">Raio-X ➔</text><circle cx="150" cy="50" r="10" fill="#a78bfa"/><circle cx="150" cy="50" r="30" stroke="#4a5568" stroke-width="1" fill="none"/><circle id="electron-ion" cx="180" cy="50" r="5" fill="#67e8f9" /><path d="M 185 45 L 240 20" stroke="#f87171" stroke-width="1.5" /><circle cx="240" cy="20" r="5" fill="#67e8f9" /><text x="180" y="80" font-size="10" fill="white">Átomo se torna um ÍON</text></svg>`]
-      ]],
-      ["Radiação Não Ionizante", [
-        ["O que é?", "É uma forma de radiação que não possui energia suficiente para remover elétrons dos átomos. Ela pode excitar os elétrons (movê-los para um nível de energia mais alto), mas não ionizá-los."],
-        ["Como funciona?", "A energia da radiação é absorvida pelo átomo, fazendo com que um elétron 'salte' para uma camada orbital mais externa. O principal efeito no tecido biológico é o aquecimento."],
-        ["Onde é encontrada?", "Está presente em nosso dia a dia: ondas de rádio, micro-ondas (celulares, Wi-Fi), luz infravermelha, luz visível e radiação ultravioleta de baixa frequência."],
-        ["Imagem Autoexplicativa", `<svg viewBox="0 0 300 100"><text x="10" y="50" font-size="12" fill="#a3e635">Micro-ondas ➔</text><circle cx="150" cy="50" r="10" fill="#a78bfa"/><circle cx="150" cy="50" r="30" stroke="#4a5568" stroke-width="1" fill="none"/><circle cx="150" cy="50" r="45" stroke="#4a5568" stroke-width="1" stroke-dasharray="2,2" fill="none"/><circle id="electron-nonion" cx="180" cy="50" r="5" fill="#67e8f9" /><text x="160" y="85" font-size="10" fill="white">Elétron é excitado</text></svg>`]
-      ]]
-    ];
+    const degradation = years / 400; // 0 a 1
 
-    // Função para gerar o HTML do conteúdo de um slide
-    function createSlideHTML(slideIndex) {
-      const [title, sections] = slidesContent[slideIndex];
-      let sectionsHTML = '';
-      sections.forEach(([header, content]) => {
-        const isImage = header.toLowerCase().includes('imagem');
-        const contentHTML = isImage ? `<div class="bg-gray-800 p-4 rounded-md">${content}</div>` : `<p class="text-gray-300">${content}</p>`;
-        sectionsHTML += `
-                        <div class="collapsible-item bg-gray-700/50 rounded-lg">
-                            <div class="collapsible-header flex justify-between items-center cursor-pointer p-4">
-                                <h3 class="font-semibold text-lg">${header}</h3>
-                                <svg class="w-6 h-6 text-cyan-400 arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </div>
-                            <div class="collapsible-content">${contentHTML}</div>
-                        </div>`;
-      });
-      return sectionsHTML;
+    bottle.style.opacity = 1 - (degradation * 0.6);
+
+    if (years > 100) {
+      bottleCrack.style.opacity = (years - 100) / 300;
+      bottleCrack.style.strokeWidth = (years - 100) / 150;
+    } else {
+      bottleCrack.style.opacity = 0;
+      bottleCrack.style.strokeWidth = 0;
     }
 
-    // Função para mostrar um tópico
-    function showTopic(index) {
-      currentSlideIndex = index;
-      const [title] = slidesContent[index];
-
-      // Atualiza título e conteúdo
-      contentTitle.textContent = title;
-      slideContainer.innerHTML = createSlideHTML(index);
-
-      // Animação para mostrar a tela de conteúdo
-      contentScreen.classList.remove('slide-out');
-      contentScreen.classList.add('active', 'slide-in');
-      homeScreen.classList.remove('active');
-
-      // Adiciona eventos aos novos collapsibles
-      addCollapsibleListeners();
-      updateNavButtons();
-    }
-
-    // Função para voltar para Home
-    function showHome() {
-      homeScreen.classList.add('active');
-      contentScreen.classList.add('slide-out');
-      contentScreen.classList.remove('slide-in');
-
-      // Espera a animação terminar para esconder a tela
-      setTimeout(() => {
-        contentScreen.classList.remove('active');
-      }, 500); // Duração da animação
-    }
-
-    // Função para atualizar os botões de navegação
-    function updateNavButtons() {
-      prevBtn.disabled = currentSlideIndex === 0;
-      nextBtn.disabled = currentSlideIndex === slidesContent.length - 1;
-      slideCounter.textContent = `Tópico ${currentSlideIndex + 1} de ${slidesContent.length}`;
-    }
-
-    // Adiciona eventos de clique aos cards da home
-    topicCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const topicIndex = parseInt(card.dataset.topic);
-        showTopic(topicIndex);
-      });
-    });
-
-    // Evento do botão de voltar
-    backBtn.addEventListener('click', showHome);
-
-    // Eventos dos botões de navegação Próximo/Anterior
-    nextBtn.addEventListener('click', () => {
-      if (currentSlideIndex < slidesContent.length - 1) {
-        showTopic(currentSlideIndex + 1);
-      }
-    });
-    prevBtn.addEventListener('click', () => {
-      if (currentSlideIndex > 0) {
-        showTopic(currentSlideIndex - 1);
-      }
-    });
-
-    // Lógica para os acordeões (collapsibles)
-    function addCollapsibleListeners() {
-      const collapsibles = slideContainer.querySelectorAll('.collapsible-header');
-      collapsibles.forEach(header => {
-        header.addEventListener('click', () => {
-          const content = header.nextElementSibling;
-          header.classList.toggle('active');
-          content.classList.toggle('open');
-        });
-      });
+    if (years === 0) {
+      statusText.textContent = 'A garrafa está como nova.';
+    } else if (years < 100) {
+      statusText.textContent = 'Começam a surgir microfissuras invisíveis.';
+    } else if (years < 250) {
+      statusText.textContent = 'O material se torna quebradiço e perde a cor.';
+    } else if (years < 400) {
+      statusText.textContent = 'Fragmentando-se em microplásticos...';
+    } else {
+      statusText.textContent = 'Totalmente fragmentada, mas ainda poluindo como microplástico.';
     }
   });
+
+  // Lógica do Modal ENEM
+  const openModalBtn = document.getElementById('open-enem-modal');
+  const closeModalBtn = document.getElementById('close-enem-modal');
+  const modal = document.getElementById('enem-modal');
+  const options = document.querySelectorAll('.option-btn');
+  const feedback = document.getElementById('feedback');
+  const correctAnwser = 'b) Hidrólise';
+
+  openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+  closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      feedback.classList.remove('hidden');
+      document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+
+      if (option.textContent === correctAnwser) {
+        option.classList.remove('bg-gray-800', 'hover:bg-gray-700');
+        option.classList.add('bg-green-600');
+        feedback.textContent = 'Correto! Hidrólise (hidro = água, lise = quebra) é a reação de quebra de uma molécula pela água. A enzima acelera exatamente esse processo na ligação éster do polímero PET.';
+        feedback.className = 'mt-6 p-4 rounded-lg bg-green-900 text-green-200';
+      } else {
+        option.classList.remove('bg-gray-800', 'hover:bg-gray-700');
+        option.classList.add('bg-red-600');
+        feedback.textContent = 'Incorreto. A resposta certa é Hidrólise. A enzima usa moléculas de água para quebrar as ligações do polímero. Tente lembrar: "lise" significa quebra, "hidro" significa água.';
+        feedback.className = 'mt-6 p-4 rounded-lg bg-red-900 text-red-200';
+        document.querySelectorAll('.option-btn').forEach(btn => {
+          if(btn.textContent === correctAnwser) {
+            btn.classList.add('bg-green-600');
+          }
+        });
+      }
+    });
+  });
+
 </script>
 </body>
 </html>
+
